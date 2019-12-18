@@ -1,6 +1,8 @@
 <!-- 
 	Huge thank you to this repository for their amazing README template!
 	https://github.com/othneildrew/Best-README-Template/blob/master/README.md
+
+	Base template : https://github.com/wearespacey/csharp-backend-boilerplate
 -->
 
 <!-- PROJECT SHIELDS -->
@@ -15,11 +17,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/hunteroi/aspnetcore-backend-boilerplate">
-    <img src="https://nsa40.casimages.com/img/2019/08/11/190811015143756586.jpg" alt="Logo" width="120" height="80">
+  <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">
+    <img src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/justmock/justmock__net_770.png" alt="Logo">
   </a>
 
-  <h3 align="center">HunteRoi's ASP.NET Core back-end boilerplate</h3>
+  <h3 align="center">ASP.NET Core back-end boilerplate</h3>
 
   <p align="center">
     An awesome back-end template built with ASP.NET Core to jumpstart your projects!
@@ -52,22 +54,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-While doing some hackathons, we definitely understood that if we were to work on projects needing such technologies, it was just time-consuming to create the API over and over again. After the [Hack In The Woods V2](http://hackinthewoods.be), this boilerplate was the next objective to step forwards to our goal : build fast and smart things that help the world and the living!
-
-Here's why you should use this:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a C# back-end solution from scratch
-* You should element DRY principles to the rest of your life :smile:
+This is my personal implementation of a RESTful API developed with love and consideration.
 
 
 ### Built With
 You will find herebelow the frameworks and dependencies used by this solution:
 * [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 * [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
-* [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
-* [Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer](https://github.com/microsoft/aspnet-api-versioning)
-* [AutoMapper](https://automapper.org/)
-
+* [Swashbuckle](https://www.nuget.org/packages/Swashbuckle.AspNetCore)
+* [Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer)
+* [AutoMapper](https://www.nuget.org/packages/AutoMapper)
+* [JwtBearer](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer)
+* [EntityFramework Core](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore)
 
 
 <!-- GETTING STARTED -->
@@ -86,8 +84,10 @@ Please make sure you have .NET Core 3.1 installed on your computer.
 git clone https://github.com/hunteroi/aspnetcore-backend-boilerplate.git
 ```
 2. Open the solution with Visual Studio / Visual Studio Code
-3. Start customizing!
-
+3. Add your database's connection string as an environment variable with the following name : `boilerplate_ConnectionStrings__DbContext`
+4. Use the *Package Manager Console* to `Add-Migration InitialCreate` 
+5. Then `Update-Database`
+6. Make sure you have selected the API project as **Start-up project** and enjoy!
 
 
 <!-- ROADMAP -->
