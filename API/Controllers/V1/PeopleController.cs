@@ -36,7 +36,7 @@ namespace API.Controllers.V1
         }
 
         [
-            HttpGet,
+            HttpGet(Name = nameof(GetAll)),
             SwaggerOperation(
                 Summary = "Returns a certain number of people.",
                 Description = "Requests a page of people not to load a lot of people on one request. The index and the page size are optional. The request returns an array of people based on the parameters."
@@ -60,7 +60,7 @@ namespace API.Controllers.V1
         }
 
         [
-            HttpGet("{id}"),
+            HttpGet("{id}", Name = nameof(GetById)),
             SwaggerOperation(
                 Summary = "Gets a single person.",
                 Description = "Gets a single person."
@@ -76,7 +76,7 @@ namespace API.Controllers.V1
         }
 
         [
-            HttpPost,
+            HttpPost(Name = nameof(Post)),
             SwaggerOperation(
                 Summary = "Places a new person.",
                 Description = "Adds a new person to the database."
@@ -84,17 +84,20 @@ namespace API.Controllers.V1
             SwaggerResponse((int)HttpStatusCode.Created, "The person was successfully placed.", typeof(DTOs.Person)),
             SwaggerResponse((int)HttpStatusCode.BadRequest, "The person is invalid.")
         ]
-        public async Task<IActionResult> Post([FromBody] DTOs.Person person)
+        public async Task<IActionResult> Post([FromBody] DTOs.Person person, ApiVersion version = null)
         {
+            if (version == null)
+                version = ApiVersion.Default;
+
             var newEntity = new v1.Person(person.Firstname, person.LastName, person.Email, person.Phone);
             await _repository.AddAsync(newEntity);
             await _repository.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { person.Id }, _mapper.Map<DTOs.Person>(newEntity));
+            return CreatedAtAction(nameof(GetById), new { id = newEntity.Id, version = $"{version}" }, _mapper.Map<DTOs.Person>(newEntity));
         }
 
         [
-            HttpPut("{id}"),
+            HttpPut("{id}", Name = nameof(Put)),
             SwaggerOperation(
                 Summary = "Edits a person based on their identifier.",
                 Description = "Change the entity of a requested person based on the provided identifier."
@@ -103,8 +106,11 @@ namespace API.Controllers.V1
             SwaggerResponse((int)HttpStatusCode.BadRequest),
             SwaggerResponse((int)HttpStatusCode.NotFound, "The person does not exist.")
         ]
-        public async Task<IActionResult> Put(int id, [FromBody] DTOs.Person person)
+        public async Task<IActionResult> Put(int id, [FromBody] DTOs.Person person, ApiVersion version = null)
         {
+            if (version == null)
+                version = ApiVersion.Default;
+
             var entityFound = await _repository.ReadAsync(id);
             if (entityFound == null) return NotFound();
 
@@ -112,11 +118,12 @@ namespace API.Controllers.V1
             entityFound.Update(updateCommand);
             _repository.Edit(entityFound);
 
-            return AcceptedAtAction(nameof(GetById), new { person.Id }, _mapper.Map<DTOs.Person>(entityFound));
+            return AcceptedAtAction(nameof(GetById), new { id = entityFound.Id, version = $"{version}" }, _mapper.Map<DTOs.Person>(entityFound));
+            //return Ok(_mapper.Map<DTOs.Person>(entityFound));
         }
 
         [
-            HttpDelete("{id}"),
+            HttpDelete("{id}", Name = nameof(Delete)),
             SwaggerOperation(
                 Summary = "Deletes a person based on their identifier.",
                 Description = "Deletes the entity of a requested person based on the provided identifier."
@@ -131,7 +138,7 @@ namespace API.Controllers.V1
 
             _repository.Delete(entityFound);
             await _repository.SaveChangesAsync();
-            return Accepted();
+            return NoContent();
         }
     }
 }
