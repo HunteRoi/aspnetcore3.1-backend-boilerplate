@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace DAL
 {
@@ -10,7 +11,9 @@ namespace DAL
         {
             IConfiguration config = new ConfigurationBuilder().AddEnvironmentVariables("boilerplate_").Build();
             var builder = new DbContextOptionsBuilder<Context>();
-            builder.UseSqlServer(config.GetConnectionString("DbContext")); // name of the environment variable beginning with "ConnectionStrings__"
+            
+            string connectionstring = config.GetConnectionString("DbContext") ?? throw new ArgumentNullException("You must add a environment variable named 'boilerplate_ConnectionStrings__Dbcontext' !");
+            builder.UseSqlServer(connectionstring);
 
             return new Context(builder.Options);
         }

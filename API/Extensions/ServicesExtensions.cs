@@ -1,4 +1,5 @@
-﻿using API.Infrastructure;
+﻿using System;
+using API.Infrastructure;
 using DAL;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -40,6 +41,7 @@ namespace API.Extensions
 
         public static IServiceCollection AddContext(this IServiceCollection services, string connectionString)
         {
+            if (string.IsNullOrWhiteSpace(connectionString)) throw new ArgumentNullException(nameof(connectionString));
             return services.AddDbContext<Context>(options =>
             {
                 options.UseSqlServer(connectionString);

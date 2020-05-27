@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace Models.V1
 {
@@ -9,10 +10,10 @@ namespace Models.V1
 
         public Person(string firstname, string lastname, string email, string phone) : this()
         {
-            FirstName = firstname;
-            LastName = lastname;
-            Email = email;
-            Phone = phone;
+            SetFirstName(firstname);
+            SetLastName(lastname);
+            SetEmail(email);
+            SetPhone(phone);
         }
 
         [Key]
@@ -26,6 +27,30 @@ namespace Models.V1
         public string Email { get; private set; }
 
         public string Phone { get; private set; }
+
+        public Person SetFirstName(string firstname) {
+            if (string.IsNullOrWhiteSpace(firstname)) throw new ArgumentNullException(nameof(firstname));
+            FirstName = firstname;
+            return this;
+        }
+
+        public Person SetLastName(string lastname) {
+            if (string.IsNullOrWhiteSpace(lastname)) throw new ArgumentNullException(nameof(lastname));
+            LastName = lastname;
+            return this;
+        }
+        
+        public Person SetEmail(string email) {
+            if (string.IsNullOrWhiteSpace(email)) throw new ArgumentNullException(nameof(email));
+            Email = email;
+            return this;
+        }
+        
+        public Person SetPhone(string phone) {
+            if (string.IsNullOrWhiteSpace(phone)) throw new ArgumentNullException(nameof(phone));
+            Phone = phone;
+            return this;
+        }
 
         public Person Update(Person person)
         {
