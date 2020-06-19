@@ -26,12 +26,12 @@
   <p align="center">
     An awesome back-end template built with ASP.NET Core to jumpstart your projects!
     <br />
-    <a href="https://github.com/hunteroi/aspnetcore-backend-boilerplate"><strong>Explore the docs �</strong></a>
+    <a href="https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate"><strong>Explore the docs �</strong></a>
     <br />
     <br />
-    <a href="https://github.com/hunteroi/aspnetcore-backend-boilerplate/issues">Report Bug</a>
+    <a href="https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate/issues">Report Bug</a>
     �
-    <a href="https://github.com/hunteroi/aspnetcore-backend-boilerplate/issues">Request Feature</a>
+    <a href="https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate/issues">Request Feature</a>
   </p>
 </p>
 
@@ -120,13 +120,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/hunteroi/aspnetcore-backend-boilerplate?style=flat-square
-[contributors-url]: https://github.com/hunteroi/aspnetcore-backend-boilerplate/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/hunteroi/aspnetcore-backend-boilerplate?style=flat-square
-[forks-url]: https://github.com/hunteroi/aspnetcore-backend-boilerplate/network/members
-[stars-shield]: https://img.shields.io/github/stars/hunteroi/aspnetcore-backend-boilerplate?style=flat-square
-[stars-url]: https://github.com/hunteroi/aspnetcore-backend-boilerplate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/hunteroi/aspnetcore-backend-boilerplate?style=flat-square
-[issues-url]: https://github.com/hunteroi/aspnetcore-backend-boilerplate/issues
-[license-shield]: https://img.shields.io/github/license/hunteroi/aspnetcore-backend-boilerplate?style=flat-square
-[license-url]: https://github.com/hunteroi/aspnetcore-backend-boilerplate/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/HunteRoi/aspnetcore3.1-backend-boilerplate?style=flat-square
+[contributors-url]: https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/HunteRoi/aspnetcore3.1-backend-boilerplate?style=flat-square
+[forks-url]: https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate/network/members
+[stars-shield]: https://img.shields.io/github/stars/HunteRoi/aspnetcore3.1-backend-boilerplate?style=flat-square
+[stars-url]: https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate/stargazers
+[issues-shield]: https://img.shields.io/github/issues/HunteRoi/aspnetcore3.1-backend-boilerplate?style=flat-square
+[issues-url]: https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate/issues
+[license-shield]: https://img.shields.io/github/license/HunteRoi/aspnetcore3.1-backend-boilerplate?style=flat-square
+[license-url]: https://github.com/HunteRoi/aspnetcore3.1-backend-boilerplate/blob/master/LICENSE
