@@ -26,7 +26,6 @@ namespace API.Extensions
                     options.DefaultModelExpandDepth(2);
                     options.DefaultModelRendering(ModelRendering.Example);
                     //options.DefaultModelsExpandDepth(-1); // hide the schemas from the Swagger UI
-                    options.DefaultModelExpandDepth(3);
                     options.EnableDeepLinking();
                     options.ShowExtensions();
                     options.DisplayRequestDuration();
